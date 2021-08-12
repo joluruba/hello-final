@@ -1,0 +1,21 @@
+---
+- hosts: sns00
+  become: True
+  remote_user: viewadmin 
+  become_method: sudo 
+  become_user: root
+  tasks:
+  - name: Create user named app2
+    user: name=app2 groups=docker home=/home/app2
+  - name: Crea directorio conf docker
+    file: path=/home/app2/.docker state=directory owner=app2 group=app2 mode='0700'
+  - name: crea carpeta certificados
+    file: path=/home/app2/.ssh state=directory owner=app2 group=app2 mode='0700' 
+  - name: copia certificado publico
+    copy: src=app2.pub dest=/home/app2/.ssh/app2.pub owner=app2 mode='0600'
+  - name: copia fichero conf docker para rel registry inseguro
+    copy: src=/home/viewadmin/.docker/config.json dest=/home/app2/.docker/config.json owner=app2 group=app2
+  - name: copia docker-compose.yaml para despliegue
+    copy: src=docker-compose.yaml dest=/home/app2/
+  - name: Agrega la llave publica para el acceso por ssh
+    authorized_key: user=app2  state=present  key="{{lookup('file', 'app2.pub') }}"

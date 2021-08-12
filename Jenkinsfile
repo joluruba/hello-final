@@ -69,7 +69,7 @@ pipeline {
  }
 }
     stage('Build-Publish') {
-    when { expression { false } }
+//    when { expression { false } }
           steps {
 // etapa donde construimos el aplicativo y la imagen, la etiquetamos y la subimos a nuestro registry inseguro
             sh 'docker build . -t 10.250.7.3:5050/joluruba/hello-final-examen:latest -t 10.250.7.3:5050/joluruba/hello-final-examen:1.0.${BUILD_NUMBER}'
@@ -96,7 +96,7 @@ pipeline {
     stage('Deploy') {
        steps {
          echo 'Deploying...'
-         sshagent (credentials: ['app-ssh']) {
+         sshagent (credentials: ['jenkins-examen']) {
                     sh "ssh -o StrictHostKeyChecking=no app2@10.250.7.3 'docker-compose pull && docker-compose up -d'"
                     }
          

@@ -74,7 +74,7 @@ pipeline {
 // etapa donde construimos el aplicativo y la imagen, la etiquetamos y la subimos a nuestro registry inseguro
             sh 'docker build . -t 10.250.7.3:5050/joluruba/hello-final-examen:latest -t 10.250.7.3:5050/joluruba/hello-final-examen:1.0.${BUILD_NUMBER}'
             withDockerRegistry([url:'http://10.250.7.3:5050', credentialsId:'gitlab-examen']){
-              sh 'docker push --all-tags 10.250.7.3:5050/joluruba/examen'
+              sh 'docker push --all-tags 10.250.7.3:5050/joluruba/hello-final-examen'
             }
            }
     }

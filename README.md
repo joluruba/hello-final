@@ -1,5 +1,5 @@
-## Ansible ejercicios varios (incluido 1 con roles) y despliegue-total
-# En este reposito estan las practicas con Ansible y el despligue total con:
+## Ejercicio Final de Curso con un despliegue total de ejemplo
+# En este reposito esta el ejercicio de final de curso sobre un despligue total de una App donde se han seguido los siguientes pasos:
 1. crear en gitlab el repositorio donde albergaremos y de donde recogeremos el artifacto
 2. Generamos la llave privada y publica para el usuario app2
 3. Aprovisionamiento con Ansible
@@ -11,7 +11,7 @@
    - Recogida del Código y Aplicativo desde Repositorio Git
    - Realización de pruebas con JaCoCo, test y Pitest de Gradle
    - Prueba de analisis con Sonarqube
-   - Contrucción de la App y de la imagen donde se despleguará la App
+   - Contrucción de la App y de la imagen donde se desplegará la App
    - Tagueado con las diferentes etiquetas que necesitemos, nº construccion, latest, dev, etc y subida al Registry inseguro de Gitab
    - Test de Seguridad de imagen con Trivy
    - Despligue final de la App contenida en la imagen archivada anteriormente en el host remoto utilizando ssh

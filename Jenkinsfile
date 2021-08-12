@@ -8,7 +8,7 @@ pipeline {
             failFast true //con esto le decimos a que si una en paralelo falla no sigua 
             parallel {
         stage('Clean-test'){
-//           when { expression { false } } //con esto nos saltamos toda esta etapa
+           when { expression { false } } //con esto nos saltamos toda esta etapa
             steps {
               echo 'Testing...'
                 withGradle {
@@ -17,7 +17,7 @@ pipeline {
               }
         }
                 stage('test-pitest'){
-//          when { expression { false } } //con esto nos saltamos toda esta etapa
+          when { expression { false } } //con esto nos saltamos toda esta etapa
             steps {
               echo 'Testing pitest'
                 withGradle {
@@ -69,7 +69,7 @@ pipeline {
  }
 }
     stage('Build-Publish') {
-//    when { expression { false } }
+    when { expression { false } }
           steps {
 // etapa donde construimos el aplicativo y la imagen, la etiquetamos y la subimos a nuestro registry inseguro
             sh 'docker build . -t 10.250.7.3:5050/joluruba/hello-final-examen:latest -t 10.250.7.3:5050/joluruba/hello-final-examen:1.0.${BUILD_NUMBER}'

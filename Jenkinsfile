@@ -11,7 +11,7 @@ pipeline {
               tools {
                    jdk "java6"
                 }
-           when { expression { false } } //con esto nos saltamos toda esta etapa
+//           when { expression { false } } //con esto nos saltamos toda esta etapa
             steps {
               echo 'Testing...'
                 withGradle {
@@ -20,7 +20,7 @@ pipeline {
               }
         }
                 stage('test-pitest'){
-          when { expression { false } } //con esto nos saltamos toda esta etapa
+ //         when { expression { false } } //con esto nos saltamos toda esta etapa
             steps {
               echo 'Testing pitest'
                 withGradle {
@@ -85,7 +85,7 @@ pipeline {
            }
     }
     stage('Security') {
-       when { expression { false } }
+//       when { expression { false } }
         steps {
           sh 'trivy image --format=json --output=trivy-image.json hellospring:latest'
               }

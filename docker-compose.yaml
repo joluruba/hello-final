@@ -4,5 +4,5 @@ services:
     image: 10.250.7.3:5050/joluruba/hello-final-examen:latest
 #    build: . 
     ports:
-      - "8084:8081"
+      - "8084:8080"
 

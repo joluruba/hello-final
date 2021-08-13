@@ -5,7 +5,7 @@ COPY ./ ./
 RUN ./gradlew assemble
 
 # Runtime stage
-FROM amazoncorretto:11
+FROM amazoncorretto:16.0.2
 WORKDIR /opt/hello-gradle
 COPY --from=base /opt/hello-gradle/build/libs/hello-final-0.0.1-SNAPSHOT.jar ./
 CMD java -jar hello-final-0.0.1-SNAPSHOT.jar

@@ -8,6 +8,9 @@ pipeline {
             failFast true //con esto le decimos a que si una en paralelo falla no sigua 
             parallel {
         stage('Clean-test'){
+              tools {
+                   jdk "jdk-16.0.2"
+                }
            when { expression { false } } //con esto nos saltamos toda esta etapa
             steps {
               echo 'Testing...'

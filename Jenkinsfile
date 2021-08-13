@@ -9,7 +9,7 @@ pipeline {
             parallel {
         stage('Clean-test'){
               tools {
-                   jdk "jdk-16.0.2"
+                   jdk "java6"
                 }
            when { expression { false } } //con esto nos saltamos toda esta etapa
             steps {

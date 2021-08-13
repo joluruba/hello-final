@@ -49,7 +49,7 @@ pipeline {
        }
      }
     stage ('QA') {
-        when { expression { false } }  //con esto nos saltamos toda esta etapa para acelerar
+//        when { expression { false } }  //con esto nos saltamos toda esta etapa para acelerar
       	steps {
         		withGradle {
         			sh './gradlew check'

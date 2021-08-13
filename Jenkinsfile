@@ -15,7 +15,7 @@ pipeline {
             steps {
               echo 'Testing...'
                 withGradle {
-                    sh 'java gradlew clean test '
+                    sh 'gradlew clean test '
                 }
               }
         }

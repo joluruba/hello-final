@@ -1,4 +1,4 @@
-pipeline {
+ipeline {
     agent any
 
     stages {
@@ -11,20 +11,17 @@ pipeline {
               tools {
                    jdk "java6"
                 }
-//           when { expression { false } } //con esto nos saltamos toda esta etapa
+           when { expression { false } } //con esto nos saltamos toda esta etapa
             steps {
               echo 'Testing...'
                 withGradle {
-                    sh './gradlew clean test '
+                    sh 'java gradlew clean test '
                 }
               }
         }
                 stage('test-pitest'){
-//          when { expression { false } } //con esto nos saltamos toda esta etapa
+          when { expression { false } } //con esto nos saltamos toda esta etapa
             steps {
-                tools {
-                   jdk "java6"
-                }
               echo 'Testing pitest'
                 withGradle {
                     sh './gradlew pitest'
@@ -55,6 +52,9 @@ pipeline {
        }
      }
     stage ('QA') {
+             tools {
+                   jdk "java6"
+                }
 //        when { expression { false } }  //con esto nos saltamos toda esta etapa para acelerar
       	steps {
         		withGradle {

@@ -1,8 +1,9 @@
-## Ejercicio Final de Curso con un despliegue total de ejemplo
-# En este reposito esta el ejercicio de final de curso sobre un despligue total de una App donde se han seguido los siguientes pasos:
+# Ejercicio Final de Curso con un despliegue total de ejemplo
+## En este reposito esta el ejercicio de final de curso sobre un despligue total de una App donde se han seguido los siguientes pasos:
 1. crear en gitlab el repositorio donde albergaremos y de donde recogeremos el artifacto
 2. Generamos la llave privada y publica para el usuario app2
 3. Aprovisionamiento con Ansible
+   - Playbook ejecutado con  -K para facilitar la pass de root y poder subir dicho playbook para revision por profesor
    - Creación-Configuracion de usuario
    - Aprovisionamiento de las carpetas y ficheros necesarios
    - Configuracion de los ficheros necesarios para el posterior despliegue con Jenkins

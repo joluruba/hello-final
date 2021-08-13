@@ -11,7 +11,7 @@ pipeline {
               tools {
                    jdk "java6"
                 }
-           when { expression { false } } //con esto nos saltamos toda esta etapa
+//           when { expression { false } } //con esto nos saltamos toda esta etapa
             steps {
               echo 'Testing...'
                 withGradle {
@@ -20,8 +20,11 @@ pipeline {
               }
         }
                 stage('test-pitest'){
-          when { expression { false } } //con esto nos saltamos toda esta etapa
+//          when { expression { false } } //con esto nos saltamos toda esta etapa
             steps {
+                tools {
+                   jdk "java6"
+                }
               echo 'Testing pitest'
                 withGradle {
                     sh './gradlew pitest'

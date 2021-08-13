@@ -15,12 +15,15 @@ pipeline {
             steps {
               echo 'Testing...'
                 withGradle {
-                    sh 'gradlew clean test '
+                    sh './gradlew clean test '
                 }
               }
         }
                 stage('test-pitest'){
- //         when { expression { false } } //con esto nos saltamos toda esta etapa
+                 tools {
+                   jdk "java6"
+                }
+          when { expression { false } } //con esto nos saltamos toda esta etapa
             steps {
               echo 'Testing pitest'
                 withGradle {
@@ -86,6 +89,7 @@ pipeline {
     }
     stage('Security') {
 //       when { expression { false } }
+//      test sobre la seguiridad de la imagen
         steps {
           sh 'trivy image --format=json --output=trivy-image.json hellospring:latest'
               }
